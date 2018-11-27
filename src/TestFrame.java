@@ -33,7 +33,7 @@ public class TestFrame extends JFrame implements ActionListener {
 	CollectionWithGet<TestMapWithCounter.TestMapEntry<String,List<Integer>>>
 /* ########## ########## ########## ########## ##########  */ 
 /* ## TAG BORT kommentarna på de 2 följande raderna när ni skrivit era samlingar */
-		//containerSLC   = new SLCWithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
+		containerSLC   = new SLCWithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
 		//containerSplay = new SplayWithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
 		containerBST   = new BSTwithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>(),
 		containerAVL   = new AVLwithGet<TestMapWithCounter.TestMapEntry<String, List<Integer>>>();
@@ -41,13 +41,13 @@ public class TestFrame extends JFrame implements ActionListener {
 
 /*  ########## ########## ########## ########## ##########  */  
 /* ###### LÄGG TILL kommentarer på de 2 följande raderna när ni skrivit era samlingar */
-	TestMapWithCounter<String,List<Integer>> slcMap = null;
+	//TestMapWithCounter<String,List<Integer>> slcMap = null;
 	TestMapWithCounter<String,List<Integer>> splayMap = null;
 
 	TestMapWithCounter<String,List<Integer>>
 /*  ########## ########## ########## ########## ##########  */  
 /* ###### TAG BORT kommentarna på de 2 följande raderna när ni skrivit era samlingar */
-		//slcMap = new TestMapWithCounter<String,List<Integer>>(containerSLC),
+		slcMap = new TestMapWithCounter<String,List<Integer>>(containerSLC),
 		//splayMap = new TestMapWithCounter<String,List<Integer>>(containerSplay),
 	
 		bstMap = new TestMapWithCounter<String,List<Integer>>(containerBST),
