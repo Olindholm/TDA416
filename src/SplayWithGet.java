@@ -29,20 +29,30 @@ public class SplayWithGet<E extends Comparable<? super E>> extends BinarySearchT
 		}
 		
 		next = (token < 0) ? e.left : e.right;
-		token = (next != null) ? 3 * splayFind(next, element, depth+1) + signum(token) : 0;
+		if (next == null) return 0;
 		
+		token = 3 * splayFind(next, element, depth+1) + signum(token);
 		return (depth % 2 == 0) ? splay(e, token) : token;
 	}
 	
 	
 	
 	private int splay(Entry e, int token) {
-		if (token == 1) zig(e);
-		else if (token == 2) zagzig(e);
-		else if (token == 4) zigzig(e);
-		else if (token == -1) zag(e);
-		else if (token == -2) zigzag(e);
-		else if (token == -4) zagzag(e);
+		
+		if (token > 0) {
+			
+			if (token > 2) zigzig(e);		// 4
+			else if (token < 2) zig(e);		// 1
+			else zagzig(e);					// 2
+			
+		}
+		else {
+			
+			if (token < -2) zagzag(e);		// -4
+			else if (token > -2) zag(e);	// -1
+			else zigzag(e);					// -2
+			
+		}
 		
 		return 0;
 	}
