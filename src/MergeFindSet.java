@@ -8,6 +8,7 @@
  * http://www.cse.chalmers.se/edu/course/tda416/
  *
  */
+
 public class MergeFindSet {
 	
 	
@@ -17,6 +18,11 @@ public class MergeFindSet {
 	
 	
 	
+	/**
+	 * Creates <tt>size</tt> number of disjoint sets.
+	 * 
+	 * @param size	the number of disjoint sets to create.
+	 */
 	public MergeFindSet(int size) {
 		this.numberOfSets = size;
 		this.set = new int[numberOfSets];
@@ -28,6 +34,14 @@ public class MergeFindSet {
 	
 	
 	
+	/**
+	 * 
+	 * Finds the root element of the set which <tt>elementIndex</tt>
+	 * belongs to, and returns the index of that root element.
+	 * 
+	 * @param elementIndex	element to look for in the disjointed sets.
+	 * @return				returns the index of the root element in the set.
+	 */
 	public int find(int elementIndex) {
 		if (set[elementIndex] < 0) return elementIndex;
 		
@@ -39,6 +53,18 @@ public class MergeFindSet {
 	
 	
 	
+	/**
+	 * Merges two disjointed sets into one.
+	 * 
+	 * It is safe to join index elements
+	 * which are not root element indices.
+	 * 
+	 * It is safe to merge the same set with itself.
+	 * Though it will result in no change.
+	 * 
+	 * @param firstRoot		one of the root index to merge.
+	 * @param secondRoot	the other of the root index to merge.
+	 */
 	public boolean merge(int firstRoot, int secondRoot) {
 		firstRoot = find(firstRoot);
 		secondRoot = find(secondRoot);
@@ -63,6 +89,11 @@ public class MergeFindSet {
 	
 	
 	
+	/**
+	 * Returns the number of disjoint sets.
+	 * 
+	 * @return the number of disjoint sets.
+	 */
 	public int getNumberOfSets() {
 		return numberOfSets;
 	}

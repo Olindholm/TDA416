@@ -39,6 +39,12 @@ public class DirectedGraph<E extends Edge> {
 	
 	
 	
+	/**
+	 * Spans a minimum spanning tree (MST)
+	 * using Kruskal's algorithm.
+	 * 
+	 * @return returns an iterator over the MST.
+	 */
 	public Iterator<E> minimumSpanningTree() {
 		Set<E> mst = new HashSet<>();
 		MergeFindSet cc = new MergeFindSet(nodeCount);
