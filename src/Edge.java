@@ -8,7 +8,7 @@
 * @author Erland Holmström
 * @version (2011 added getters, toString, hashCode and equals)
 */
-public abstract class Edge {
+public abstract class Edge implements Comparable<Edge> {
 
 	/**
 	* The nodes from which the edge starts to which 
@@ -83,5 +83,10 @@ public abstract class Edge {
 	*/
 	public int hashCode() {
 		return (from << 16) ^ to;
+	}
+	
+	@Override
+	public int compareTo(Edge e) {
+		return (int) Math.signum(this.getWeight() - e.getWeight());
 	}
 }
