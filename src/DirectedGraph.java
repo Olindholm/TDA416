@@ -185,6 +185,13 @@ public class DirectedGraph<E extends Edge> {
 	
 	
 	
+	/**
+	 * This is a special dummy version of the
+	 * DijkstraNode class, see {@link DirectedGraph#shortestPath shortestPath()} for it's use.
+	 * 
+	 * Note this dummy node will throw NullPointerException's from all of it's methods but some.
+	 * {@link #getNodeNo getNodeNo()} and {@link DijkstraNode#compareTo compareTo(...)} are safe to use.
+	 */
 	private class DijkstraDummyNode extends DijkstraNode {
 		
 		int nodeNo;
@@ -203,7 +210,11 @@ public class DirectedGraph<E extends Edge> {
 	
 	
 	
-	public class DijkstraNode implements Comparable<DijkstraNode> {
+	/**
+	 * The DijkstraNode class is used for
+	 * Dijkstra's algorithm in {@link DirectedGraph#shortestPath shortestPath()}.
+	 */
+	private class DijkstraNode implements Comparable<DijkstraNode> {
 		
 		
 		
@@ -219,24 +230,46 @@ public class DirectedGraph<E extends Edge> {
 		
 		
 		
+		/**
+		 * Returns the edge used to get from
+		 * the previous node to this node.
+		 * 
+		 * @return returns the edge used to get here.
+		 */
 		public E getEdge() {
 			return edge;
 		}
 		
 		
 		
+		/**
+		 * Returns the total weight (cost) to this node.
+		 * 
+		 * @return returns the total weight to this node.
+		 */
 		public double getWeightToNode() {
 			return weightToNode;
 		}
 		
 		
 		
+		/**
+		 * Returns the node number of the
+		 * node before this node in the path.
+		 * 
+		 * @return returns the <tt>nodeNo</tt> of the node prior to this node.
+		 */
 		public int getPreviousNodeNo() {
 			return edge.from;
 		}
 		
 		
 		
+		/**
+		 * Returns the node number of this node.
+		 * 
+		 * @return returns the <tt>nodeNo</tt> of this node.
+		 */
 		public int getNodeNo() {
 			return edge.to;
 		}
